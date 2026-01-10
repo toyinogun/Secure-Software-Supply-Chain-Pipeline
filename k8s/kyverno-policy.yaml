@@ -1,0 +1,21 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: check-image-signature
+spec:
+  validationFailureAction: Enforce
+  background: false
+  rules:
+    - name: check-image-signature
+      match:
+        any:
+        - resources:
+            kinds:
+              - Pod
+            namespaces:
+              - secure-apps
+      verifyImages:
+      - repository: "ghcr.io/toyinogun/*"
+        keyless:
+          issuer: "https://token.actions.githubusercontent.com"
+          subject: "https://github.com/toyinogun/Secure-Software-Supply-Chain-Pipeline/.github/workflows/supply-chain.yaml@refs/heads/main"
