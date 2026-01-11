@@ -15,7 +15,8 @@ spec:
             namespaces:
               - secure-apps
       verifyImages:
-      - imageReferences: 
+      - mutateDigest: false
+        imageReferences: 
         - "ghcr.io/toyinogun/*"
         attestors:
         - entries:
