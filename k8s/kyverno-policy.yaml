@@ -15,7 +15,12 @@ spec:
             namespaces:
               - secure-apps
       verifyImages:
-      - repository: "ghcr.io/toyinogun/*"
-        keyless:
-          issuer: "https://token.actions.githubusercontent.com"
-          subject: "https://github.com/toyinogun/Secure-Software-Supply-Chain-Pipeline/.github/workflows/supply-chain.yaml@refs/heads/main"
+      - imageReferences: 
+        - "ghcr.io/toyinogun/*"
+        attestors:
+        - entries:
+          - keyless:
+              issuer: "https://token.actions.githubusercontent.com"
+              subject: "https://github.com/toyinogun/Secure-Software-Supply-Chain-Pipeline/.github/workflows/supply-chain.yaml@refs/heads/main"
+              rekor:
+                url: https://rekor.sigstore.dev
