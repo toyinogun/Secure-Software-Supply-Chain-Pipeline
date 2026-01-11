@@ -16,7 +16,8 @@ spec:
               - secure-apps
       verifyImages:
       - mutateDigest: false
-        imageReferences: 
+        verifyDigest: false
+        imageReferences:
         - "ghcr.io/toyinogun/*"
         attestors:
         - entries:
