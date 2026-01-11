@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: secure-api
-          image: ghcr.io/toyinogun/secure-api:6ef498a922012c6db1c7aac4f999a82720085ac2
+          image: ghcr.io/toyinogun/secure-api:015d096e1fd9d3b979ab32628f2fca1fbaca9a83
           ports:
             - containerPort: 8080
           resources:
